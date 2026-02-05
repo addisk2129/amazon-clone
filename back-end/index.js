@@ -8,10 +8,13 @@ const stripe = new Stripe(process.env.STRIPE_KEY);
 
 const app = express();
 app.use(cors({
-  origin: ['http://localhost:5173',
-    'https://amanone-clone-frontend.vercel.app/api'],
+  origin: [
+    'http://localhost:5173',  
+    'https://*.vercel.app',  
+    'https://amazone-clone.vercel.app'  
+  ],
   credentials: true,
-  origin: true
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
 
 app.use(express.json());
