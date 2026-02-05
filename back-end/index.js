@@ -7,7 +7,13 @@ const Stripe = require("stripe");
 const stripe = new Stripe(process.env.STRIPE_KEY);
 
 const app = express();
-app.use(cors({origin: true}));
+app.use(cors({
+  origin: ['http://localhost:5173',
+    'https://amanone-clone-frontend.vercel.app/api'],
+  credentials: true,
+  origin: true
+}));
+
 app.use(express.json());
 const port=5000;
 
@@ -15,7 +21,7 @@ app.get("/", (req, res) => {
   res.status(200).json({message: "success"});
 });
 
-app.post("/payment/create", async (req, res) => {
+app.post("/api/payment/create", async (req, res) => {
   const total = Math.round(Number(req.query.total) * 100);
 
 

@@ -4,15 +4,18 @@ import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
 import { getAnalytics } from "firebase/analytics";
 
+// Use environment variables
 const firebaseConfig = {
-  apiKey: "AIzaSyDyyPdGdVQsH-o8MnKsAd6q_z9oTp5Pb4s",
-  authDomain: "e-clone-d0a49.firebaseapp.com",
-  projectId: "e-clone-d0a49",
-  storageBucket: "e-clone-d0a49.firebasestorage.app",
-  messagingSenderId: "552222802124",
-  appId: "1:552222802124:web:f4d041500743ffee684269",
-  measurementId: "G-KSTTE9VY76"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
+  measurementId: import.meta.env.VITE_FIREBASE_MEASUREMENT_ID
 };
+
+// Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
 // Initialize services
@@ -26,5 +29,5 @@ if (typeof window !== 'undefined') {
   analytics = getAnalytics(app);
 }
 
-// Export services (for use in other files)
+// Export services
 export { app, auth, db, storage, analytics };
