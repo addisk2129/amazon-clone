@@ -1,0 +1,47 @@
+/* ProductDetail.module.css */
+
+.page {
+    background-color: #eaeded;
+    padding: 20px 0;
+    min-height: 100vh;
+}
+
+/* Main container */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 30px;
+}
+
+/* Left side (image / card) */
+.left {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+/* Right side (details) */
+.right {
+    display: flex;
+    flex-direction: column;
+}
+
+/* Description */
+.description {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.6;
+    color: #111;
+}
+
+/* Loading center */
+.loaderWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 60vh;
+}
