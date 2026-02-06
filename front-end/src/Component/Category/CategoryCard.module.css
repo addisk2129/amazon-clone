@@ -1,55 +1,89 @@
+/* =========================
+   CATEGORY CARD
+   ========================= */
+
 .card {
-    width: 260px;
-    background-color: #fff;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #ffffff;
+    padding: 14px;
+    border-radius: 6px;
+    box-shadow: 0 1px 3px rgb(0 0 0 / 12%);
+    font-family: Arial, Helvetica, sans-serif;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 12px 24px rgb(0 0 0 / 0.15);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgb(0 0 0 / 18%);
 }
 
+/* Remove link styles */
 .card a {
-    color: #000;
     text-decoration: none;
-    display: block;
-    padding: 20px;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
+
+/* =========================
+   TITLE
+   ========================= */
 
 .card h2 {
-    font-size: 1.5rem;
-    margin-bottom: 15px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #0f1111;
+    margin-bottom: 10px;
 }
+
+/* =========================
+   IMAGE (NO OVERFLOW EVER)
+   ========================= */
 
 .card img {
     width: 100%;
-    height: 140px;
-    object-fit: cover;
-    border-radius: 8px;
-    margin-bottom: 15px;
-    transition: transform 0.3s ease;
+    height: 180px;
+    /* Amazon fixed image box */
+    object-fit: contain;
+    /* ✅ DO NOT crop */
+    background-color: #f7f7f7;
+    margin-bottom: 12px;
 }
 
-.card:hover img {
-    transform: scale(1.05);
-}
+/* =========================
+   SHOP NOW LINK
+   ========================= */
 
 .card p {
-    font-weight: 600;
+    margin-top: auto;
+    font-size: 13px;
+    font-weight: 500;
     color: #007185;
-    /* Amazon blue-ish */
-    font-size: 1rem;
-    margin-top: 0;
-    transition: color 0.3s ease;
+    /* Amazon link blue */
 }
 
-.card:hover p {
+.card p:hover {
     color: #c45500;
-    /* Amazon orange-ish on hover */
+    /* Amazon hover orange */
+    text-decoration: underline;
+}
+
+/* =========================
+   RESPONSIVE
+   ========================= */
+
+@media (max-width: 768px) {
+    .card img {
+        height: 160px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card h2 {
+        font-size: 15px;
+    }
+
+    .card img {
+        height: 140px;
+    }
 }

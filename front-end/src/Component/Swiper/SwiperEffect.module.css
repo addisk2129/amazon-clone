@@ -1,11 +1,9 @@
-
-
 .sliderWrapper {
     width: 100%;
     max-height: 400px;
-
     position: relative;
     z-index: 1;
+    overflow: hidden;
 }
 
 /* Swiper container */
@@ -26,13 +24,15 @@
 :global(.swiper-button-next),
 :global(.swiper-button-prev) {
     color: black;
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.85);
     width: 45px;
     height: 90px;
     top: 50%;
     transform: translateY(-50%);
+    border-radius: 4px;
 }
 
+/* Arrow icon */
 :global(.swiper-button-next::after),
 :global(.swiper-button-prev::after) {
     font-size: 20px;
@@ -56,4 +56,61 @@
 
 :global(.swiper-scrollbar-drag) {
     background: #111;
+}
+
+/* ===========================
+   RESPONSIVE BREAKPOINTS
+   =========================== */
+
+/* 📱 Mobile devices */
+@media (max-width: 768px) {
+    .sliderWrapper {
+        max-height: 250px;
+    }
+
+    .slideImage {
+        mask-image: linear-gradient(to bottom, black 70%, transparent 100%);
+    }
+
+    :global(.swiper-button-next),
+    :global(.swiper-button-prev) {
+        width: 35px;
+        height: 60px;
+    }
+
+    :global(.swiper-button-next::after),
+    :global(.swiper-button-prev::after) {
+        font-size: 16px;
+    }
+}
+
+/* 📱 Small phones */
+@media (max-width: 480px) {
+    .sliderWrapper {
+        max-height: 200px;
+    }
+
+    /* Hide arrows on very small screens (Amazon behavior) */
+    :global(.swiper-button-next),
+    :global(.swiper-button-prev) {
+        display: none;
+    }
+
+    :global(.swiper-pagination-bullet) {
+        width: 6px;
+        height: 6px;
+    }
+}
+
+/* 💻 Large screens */
+@media (min-width: 1200px) {
+    .sliderWrapper {
+        max-height: 450px;
+    }
+
+    :global(.swiper-button-next),
+    :global(.swiper-button-prev) {
+        width: 50px;
+        height: 100px;
+    }
 }

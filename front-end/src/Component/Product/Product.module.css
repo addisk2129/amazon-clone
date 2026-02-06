@@ -1,141 +1,92 @@
+/* =========================
+   PRODUCT GRID (AMAZON)
+   ========================= */
+
 .productGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-    padding: 20px 100px;
-    background: #f7f7f7;
-    gap: 15px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 16px;
+    padding: 20px 80px;
+    background-color: #eaeded;
 }
 
+/* Large tablets */
+@media (max-width: 1200px) {
+    .productGrid {
+        padding: 20px 40px;
+    }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+    .productGrid {
+        padding: 15px 20px;
+        grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+    .productGrid {
+        padding: 10px;
+        gap: 12px;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* =========================
+   PRODUCT CARD
+   ========================= */
+
 .card {
-    width: 250px;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    overflow: hidden;
-    background: #fff;
+    background-color: #ffffff;
     display: flex;
     flex-direction: column;
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    padding: 14px;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(15, 17, 17, 0.15);
+    transition: box-shadow 0.2s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 6px 14px rgba(15, 17, 17, 0.25);
 }
 
+/* =========================
+   IMAGE
+   ========================= */
+
 .imageWrapper {
-    width: 100%;
-    height: 250px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #fafafa;
-}
-
-.image {
-    max-height: 70%;
-    max-width: 90%;
-    object-fit:contain;
-}
-
-.content {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.title {
-    font-size: 1rem;
-    font-weight: 600;
-    color: #333;
-}
-
-.rating {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-}
-
-.count {
-    color: #666;
-    font-size: 0.85rem;
-}
-
-.price {
-    font-size: 1.1rem;
-    font-weight: bold;
-    color: #1a8917;
-}
-
-.button {
-    background: #ff6f00;
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background 0.2s ease;
-}
-
-.button:hover {
-    background: #e65c00;
-}
-
-.product_flexed {
-    box-shadow: none;
-    height: auto;
-    display: flex;
-    gap: 50px;
-    width: 100%;
-}
-
-/* ProductCard.module.css */
-
-.card {
-    background-color: white;
-    display: flex;
-    flex-direction: column;
-    padding: 15px;
-    width: 100%;
-    max-width: 300px;
-    height: 420px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    cursor: pointer;
-}
-
-.card:hover {
-    transform: scale(1.01);
-}
-
-/* Product image */
-.imageWrapper {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     height: 200px;
     margin-bottom: 10px;
 }
 
 .imageWrapper img {
-    max-height: 100%;
     max-width: 100%;
+    max-height: 100%;
     object-fit: contain;
 }
 
-/* Info section */
-.info {
+/* =========================
+   CONTENT
+   ========================= */
+
+.content {
     display: flex;
     flex-direction: column;
     flex: 1;
 }
 
-/* Title */
+/* Product title */
 .title {
     font-size: 14px;
-    font-weight: 500;
-    margin-bottom: 8px;
-    line-height: 1.3;
+    font-weight: 400;
+    color: #0f1111;
+    line-height: 1.35;
+    margin-bottom: 6px;
 
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -143,12 +94,15 @@
     overflow: hidden;
 }
 
-/* Rating */
+/* =========================
+   RATING
+   ========================= */
+
 .rating {
     display: flex;
     align-items: center;
-    gap: 5px;
-    margin-bottom: 8px;
+    gap: 6px;
+    margin-bottom: 6px;
 }
 
 .rating span {
@@ -156,9 +110,84 @@
     color: #007185;
 }
 
-/* Price */
+/* =========================
+   PRICE
+   ========================= */
+
 .price {
-    margin-top: auto;
     font-size: 18px;
     font-weight: 700;
+    color: #0f1111;
+    margin-top: auto;
+}
+
+/* =========================
+   ADD TO CART BUTTON
+   ========================= */
+
+.button {
+    margin-top: 10px;
+    background-color: #ffd814;
+    border: 1px solid #fcd200;
+    border-radius: 20px;
+    padding: 7px 0;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #0f1111;
+    transition: background-color 0.2s ease;
+}
+
+.button:hover {
+    background-color: #f7ca00;
+}
+
+/* =========================
+   MOBILE FIXES
+   ========================= */
+
+@media (max-width: 600px) {
+    .imageWrapper {
+        height: 160px;
+    }
+
+    .price {
+        font-size: 16px;
+    }
+}
+/* =========================
+   IMAGE CONTAINER (FIXED)
+   ========================= */
+
+.imageWrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    /* 🔥 KEY FIX */
+}
+
+/* Actual image */
+.imageWrapper img {
+    max-width: 90%;
+    max-height: 90%;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .imageWrapper {
+        height: 160px;
+    }
+
+    .imageWrapper img {
+        max-width: 95%;
+        max-height: 95%;
+    }
 }
